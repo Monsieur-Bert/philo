@@ -6,7 +6,7 @@
 #    By: antauber <antauber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/08 12:27:44 by antauber          #+#    #+#              #
-#    Updated: 2025/02/10 15:49:18 by antauber         ###   ########.fr        #
+#    Updated: 2025/02/21 10:57:57 by antauber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,12 @@ NAME		:=	philo
 INC			:=	includes
 
 SRCS_DIR	:=	srcs
-SRCS		:=	philo.c
+SRCS		:=	main.c\
+				parse.c\
+				utils.c\
+				handle_time.c\
+				init.c\
+				routine.c
 SRCS		:=	$(SRCS:%=$(SRCS_DIR)/%)
 
 BUILD_DIR	:=	.build
