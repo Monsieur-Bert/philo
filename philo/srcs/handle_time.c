@@ -6,7 +6,7 @@
 /*   By: antauber <antauber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 10:57:46 by antauber          #+#    #+#             */
-/*   Updated: 2025/02/21 17:05:03 by antauber         ###   ########.fr       */
+/*   Updated: 2025/02/24 17:03:09 by antauber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	delayed_start(time_t time)
 {
 	while (get_time() < time)
-		continue;
+		continue ;
 }
 
 void	ft_usleep(time_t target, t_table *table)
@@ -27,7 +27,7 @@ void	ft_usleep(time_t target, t_table *table)
 	{
 		if (!is_simu_ok(table))
 			return ;
-		usleep(1);
+		usleep(10);
 	}
 }
 
