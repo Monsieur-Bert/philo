@@ -6,7 +6,7 @@
 /*   By: antauber <antauber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 12:43:06 by antauber          #+#    #+#             */
-/*   Updated: 2025/02/24 16:15:53 by antauber         ###   ########.fr       */
+/*   Updated: 2025/02/25 09:40:34 by antauber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ typedef struct s_table
 {
 	bool		simu;
 	int			nb_philos;
-	time_t		time_to_die;
-	time_t		time_to_eat;
-	time_t		time_to_sleep;
+	time_t		t_to_die;
+	time_t		t_to_eat;
+	time_t		t_to_sleep;
 	time_t		start;
 	int			meal_goal;
 	t_philo		*philos;
@@ -61,17 +61,17 @@ typedef struct s_table
 int		parse(int argc, char **argv, t_table *data);
 void	init_mutex(t_table *table);
 void	init_philos(t_table *table);
-void	start_simulation(t_table *table);
 
 void	delayed_start(time_t time);
 void	ft_usleep(time_t target, t_table *table);
 time_t	get_time(void);
 
-int		get_total_meals(t_table *table);
+bool	table_is_full(t_table *table);
 bool	is_simu_ok(t_table *philo);
 void	display(time_t time, t_philo *philo, char *log, bool death);
 void	clean_off_the_table(t_table *table);
 
 void	*philo_routine(void *data);
+void	start_simulation(t_table *table);
 
 #endif

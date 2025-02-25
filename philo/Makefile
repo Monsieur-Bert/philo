@@ -6,7 +6,7 @@
 #    By: antauber <antauber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/08 12:27:44 by antauber          #+#    #+#              #
-#    Updated: 2025/02/21 10:57:57 by antauber         ###   ########.fr        #
+#    Updated: 2025/02/25 09:40:25 by antauber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,8 @@ SRCS		:=	main.c\
 				utils.c\
 				handle_time.c\
 				init.c\
-				routine.c
+				routine.c\
+				simu.c
 SRCS		:=	$(SRCS:%=$(SRCS_DIR)/%)
 
 BUILD_DIR	:=	.build

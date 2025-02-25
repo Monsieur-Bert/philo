@@ -6,7 +6,7 @@
 /*   By: antauber <antauber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 08:50:50 by antauber          #+#    #+#             */
-/*   Updated: 2025/02/24 17:00:33 by antauber         ###   ########.fr       */
+/*   Updated: 2025/02/25 09:38:00 by antauber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(int argc, char **argv)
 	{
 		printf("%s", TABLE);
 		table.simu = true;
-		table.start = get_time() + (table.time_to_die);
+		table.start = get_time() + (table.t_to_die);
 		init_mutex(&table);
 		init_philos(&table);
 		start_simulation(&table);

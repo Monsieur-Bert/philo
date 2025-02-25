@@ -6,7 +6,7 @@
 /*   By: antauber <antauber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 09:03:36 by antauber          #+#    #+#             */
-/*   Updated: 2025/02/21 11:38:57 by antauber         ###   ########.fr       */
+/*   Updated: 2025/02/25 09:38:09 by antauber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,14 @@ int	parse(int argc, char **argv, t_table *table)
 	table->nb_philos = ft_atoi(argv[1]);
 	if (table->nb_philos == 0)
 		return (write(2, ERR_PH, ERR_PH_L));
-	table->time_to_die = ft_atoi(argv[2]);
-	if (table->time_to_die == 0)
+	table->t_to_die = ft_atoi(argv[2]);
+	if (table->t_to_die == 0)
 		return (write(2, ERR_DIE, ERR_DIE_L));
-	table->time_to_eat = ft_atoi(argv[3]);
-	if (table->time_to_eat == 0)
+	table->t_to_eat = ft_atoi(argv[3]);
+	if (table->t_to_eat == 0)
 		return (write(2, ERR_EAT, ERR_EAT_L));
-	table->time_to_sleep = ft_atoi(argv[4]);
-	if (table->time_to_sleep == 0)
+	table->t_to_sleep = ft_atoi(argv[4]);
+	if (table->t_to_sleep == 0)
 		return (write(2, ERR_SL, ERR_SL_L));
 	if (argc == 6)
 	{
