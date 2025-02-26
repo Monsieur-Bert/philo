@@ -6,7 +6,7 @@
 /*   By: antauber <antauber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 12:13:44 by antauber          #+#    #+#             */
-/*   Updated: 2025/02/25 09:36:15 by antauber         ###   ########.fr       */
+/*   Updated: 2025/02/26 16:18:37 by antauber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	clean_off_the_table(t_table *table)
 	i = 0;
 	while (i < table->nb_philos)
 	{
-		pthread_join(table->philos[i].thread, NULL);
+		pthread_join(table->philos[i].th_philo, NULL);
 		i++;
 	}
 	i = 0;

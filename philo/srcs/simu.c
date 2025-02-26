@@ -6,7 +6,7 @@
 /*   By: antauber <antauber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 09:40:00 by antauber          #+#    #+#             */
-/*   Updated: 2025/02/25 09:40:13 by antauber         ###   ########.fr       */
+/*   Updated: 2025/02/26 14:53:03 by antauber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	start_simulation(t_table *table)
 	i = 0;
 	while (i < table->nb_philos)
 	{
-		pthread_create(&table->philos[i].thread, NULL, philo_routine,
+		pthread_create(&table->philos[i].th_philo, NULL, philo_routine,
 			&table->philos[i]);
 		i++;
 	}

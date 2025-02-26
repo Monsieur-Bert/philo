@@ -6,7 +6,7 @@
 /*   By: antauber <antauber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 10:17:16 by antauber          #+#    #+#             */
-/*   Updated: 2025/02/26 16:18:50 by antauber         ###   ########.fr       */
+/*   Updated: 2025/02/26 08:26:54 by antauber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,17 @@
 # define ERR_MEAL_L 57
 
 # define TABLE	"============ 🍽️  PHILOSPHERS' DINER 🍽️  =============\n\n"
-# define FORK	"has taken a fork\t🍴\n"
-# define EAT	"is eating\t\t🍝\n"
-# define SLEEP	"is sleeping\t\t💤\n"
-# define THINK	"is thinking\t\t🤔\n"
-# define DIE	"died\t\t\t🪦\n"
+// # define FORK	"has taken a fork\t🍴\n"
+// # define EAT	"is eating\t\t🍝\n"
+// # define SLEEP	"is sleeping\t\t💤\n"
+// # define THINK	"is thinking\t\t🤔\n"
+// # define DIE	"died\t\t\t🪦\n"
+
+# define FORK	"has taken a fork\n"
+# define EAT	"is eating\n"
+# define SLEEP	"is sleeping\n"
+# define THINK	"is thinking\n"
+# define DIE	"died\n"
 
 # define RESET	"\e[0m"
 # define GREEN	"\e[0;32m"

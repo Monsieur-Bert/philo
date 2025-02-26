@@ -6,64 +6,42 @@
 /*   By: antauber <antauber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 11:39:24 by antauber          #+#    #+#             */
-/*   Updated: 2025/02/25 11:23:15 by antauber         ###   ########.fr       */
+/*   Updated: 2025/02/26 17:55:06 by antauber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <philo.h>
+#include <philo_bonus.h>
 
-int	init_mutex(t_table *table)
+int	init_semaphores(t_table *table)
 {
-	int	i;
-
-	i = 0;
-	pthread_mutex_init(&table->mtx_display, NULL);
-	pthread_mutex_init(&table->mtx_simu, NULL);
-	table->mtx_forks = malloc(sizeof(t_mutex) * table->nb_philos);
-	if (table->mtx_forks == NULL)
-		return (1);
-	table->mtx_meals = malloc(sizeof(t_mutex) * table->nb_philos);
-	if (table->mtx_meals == NULL)
-	{
-		free(table->mtx_forks);
-		return (1);
-	}
-	while (i < table->nb_philos)
-	{
-		pthread_mutex_init(&table->mtx_forks[i], NULL);
-		pthread_mutex_init(&table->mtx_meals[i], NULL);
-		i++;
-	}
+	//proteger tout ca ou enlever le return
+	sem_unlink("/simu");
+	sem_unlink("/death");
+	sem_unlink("/full");
+	sem_unlink("/meal_access");
+	sem_unlink("/display");
+	sem_unlink("/forks");
+	table->sem_simu = sem_open("/simu", O_CREAT, 0644, 1);
+	table->sem_death = sem_open("/death", O_CREAT, 0644, 0);
+	table->sem_full = sem_open("/full", O_CREAT, 0644, 0);
+	table->sem_meal_access = sem_open("/meal_access", O_CREAT, 0644, 1);
+	table->sem_display = sem_open("/display", O_CREAT, 0644, 1);
+	table->sem_forks = sem_open("/forks", O_CREAT, 0644, table->nb_philos);
 	return (0);
-}
-
-static void	give_forks(t_table *table, int *i)
-{
-	if ((*i + 1) % 2 == 0)
-	{
-		table->philos[*i].l_fork = &table->mtx_forks[*i];
-		table->philos[*i].r_fork = &table->mtx_forks[(*i + 1)
-			% table->nb_philos];
-	}
-	else
-	{
-		table->philos[*i].r_fork = &table->mtx_forks[*i];
-		table->philos[*i].l_fork = &table->mtx_forks[(*i + 1)
-			% table->nb_philos];
-	}
-	table->philos[*i].table = table;
 }
 
 int	init_philos(t_table *table)
 {
-	int	i;
+	int		i;
 
 	i = 0;
 	table->philos = malloc(sizeof(t_philo) * table->nb_philos);
 	if (table->philos == NULL)
+		return (1);
+	table->ph_pids = malloc(sizeof(t_pid) * table->nb_philos);
+	if (table->ph_pids == NULL)
 	{
-		free(table->mtx_forks);
-		free(table->mtx_meals);
+		free(table->philos);
 		return (1);
 	}
 	while (i < table->nb_philos)
@@ -71,7 +49,7 @@ int	init_philos(t_table *table)
 		table->philos[i].id = i + 1;
 		table->philos[i].nb_meals = 0;
 		table->philos[i].last_meal = table->start;
-		give_forks(table, &i);
+		table->philos[i].table = table;
 		i++;
 	}
 	return (0);

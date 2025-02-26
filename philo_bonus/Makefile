@@ -6,12 +6,12 @@
 #    By: antauber <antauber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/08 12:27:44 by antauber          #+#    #+#              #
-#    Updated: 2025/02/25 11:49:22 by antauber         ###   ########.fr        #
+#    Updated: 2025/02/26 17:17:11 by antauber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME		:=	philo
+NAME		:=	philo_bonus
 
 ## ########################################################################## ##
 #	INGREDIENTS																  ##
@@ -25,9 +25,9 @@ NAME		:=	philo
 # OBJS			object files
 # DEPS			dependencies files
 
-INC			:=	includes
+INC			:=	includes_bonus
 
-SRCS_DIR	:=	srcs
+SRCS_DIR	:=	srcs_bonus
 SRCS		:=	main.c\
 				parse.c\
 				utils.c\
@@ -37,7 +37,7 @@ SRCS		:=	main.c\
 				simu.c
 SRCS		:=	$(SRCS:%=$(SRCS_DIR)/%)
 
-BUILD_DIR	:=	.build
+BUILD_DIR	:=	.build_bonus
 OBJS		:=	$(SRCS:$(SRCS_DIR)/%.c=$(BUILD_DIR)/%.o)
 DEPS		:=	$(SRCS:$(SRCS_DIR)/%.c=$(BUILD_DIR)/%.d)
 
